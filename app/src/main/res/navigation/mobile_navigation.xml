@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/fragment_login">
 
     <fragment
         android:id="@+id/nav_home"
@@ -22,4 +22,16 @@
         android:name="com.example.educatio_version1.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.example.educatio_version1.ui.Login.LoginFragment"
+        android:label="login"
+        tools:layout="@layout/fragment_login"/>
+
+    <fragment
+        android:id="@+id/fragment_register"
+        android:name="com.example.educatio_version1.ui.Register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

@@ -1,18 +1,29 @@
 package com.example.educatio_version1.ui.Register
 
+
+
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.example.educatio_version1.R
 import com.example.educatio_version1.databinding.FragmentRegisterBinding
+import com.example.educatio_version1.ui.Register.ManagerBd
 
-class RegistroActivity : AppCompatActivity() {
+class RegisterFragment : Fragment() {
 
-    private lateinit var binding: FragmentRegisterBinding
+    private var _binding: FragmentRegisterBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = FragmentRegisterBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        val view = binding.root
 
         // Configurar el listener para el evento de clic del botón de registro
         binding.botonRegistro.setOnClickListener {
@@ -27,15 +38,22 @@ class RegistroActivity : AppCompatActivity() {
             // Aquí debes realizar la validación de entrada
 
             // Llamar al método insertarDatos() de ManagerBd para insertar el registro en la base de datos
-            val managerBd = ManagerBd(this)
+            val managerBd = ManagerBd(requireContext()) // Usar requireContext() para obtener el contexto del fragmento
             val resultado = managerBd.insertarDatos(cedula, nombre, fechaNacimiento, ciudad, telefono, correo, contrasena)
 
             // Manejar el resultado según corresponda
             if (resultado != -1L) {
-                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Registro exitoso", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Error al registrar", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Error al registrar", Toast.LENGTH_SHORT).show()
             }
         }
+
+        return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
