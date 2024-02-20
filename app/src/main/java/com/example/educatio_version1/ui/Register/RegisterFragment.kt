@@ -1,60 +1,41 @@
 package com.example.educatio_version1.ui.Register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.educatio_version1.R
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.educatio_version1.databinding.FragmentRegisterBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class RegistroActivity : AppCompatActivity() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegisterFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class RegisterFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+        binding = FragmentRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
-    }
+        // Configurar el listener para el evento de clic del botón de registro
+        binding.botonRegistro.setOnClickListener {
+            val cedula = binding.identificacion.text.toString()
+            val nombre = binding.name.text.toString()
+            val fechaNacimiento = binding.fechaN.text.toString()
+            val ciudad = binding.ciudad.text.toString()
+            val telefono = binding.telefono.text.toString()
+            val correo = binding.email.text.toString()
+            val contrasena = binding.contrasena.text.toString()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegisterFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+            // Aquí debes realizar la validación de entrada
+
+            // Llamar al método insertarDatos() de ManagerBd para insertar el registro en la base de datos
+            val managerBd = ManagerBd(this)
+            val resultado = managerBd.insertarDatos(cedula, nombre, fechaNacimiento, ciudad, telefono, correo, contrasena)
+
+            // Manejar el resultado según corresponda
+            if (resultado != -1L) {
+                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Error al registrar", Toast.LENGTH_SHORT).show()
             }
+        }
     }
 }

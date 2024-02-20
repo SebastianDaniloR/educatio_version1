@@ -55,9 +55,10 @@
                     android:text="Nombre:"
                     app:layout_constraintBottom_toTopOf="@+id/name"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintHorizontal_bias="0.126"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/identificacion"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -70,7 +71,7 @@
                     android:text="Numero de Telefono:"
                     app:layout_constraintBottom_toTopOf="@+id/telefono"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.306"
+                    app:layout_constraintHorizontal_bias="0.165"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ciudad"
                     app:layout_constraintVertical_bias="0.0"
@@ -78,13 +79,13 @@
 
                 <EditText
                     android:id="@+id/telefono"
-                    android:layout_width="230dp"
-                    android:layout_height="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="Telefono"
                     android:inputType="phone"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/email"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -100,10 +101,10 @@
                     android:text="Fecha Nacimiento:"
                     app:layout_constraintBottom_toTopOf="@+id/fechaN"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.289"
+                    app:layout_constraintHorizontal_bias="0.156"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name"
-                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_bias="1.0"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -115,19 +116,19 @@
                     android:text="Numero Identificacion:"
                     app:layout_constraintBottom_toTopOf="@+id/identificacion"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.318"
+                    app:layout_constraintHorizontal_bias="0.172"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:ignore="MissingConstraints" />
 
                 <EditText
                     android:id="@+id/name"
-                    android:layout_width="230dp"
-                    android:layout_height="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="Nombre Completo"
                     android:inputType="text"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toStartOf="parent"
@@ -144,22 +145,22 @@
                     android:text="Correo Electronico:"
                     app:layout_constraintBottom_toTopOf="@+id/email"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.293"
+                    app:layout_constraintHorizontal_bias="0.158"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/telefono"
-                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:ignore="MissingConstraints" />
 
                 <EditText
                     android:id="@+id/email"
-                    android:layout_width="230dp"
-                    android:layout_height="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toTopOf="@+id/contraseña"
+                    android:inputType="text|textEmailAddress|textAutoComplete"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/contrasena"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toStartOf="parent"
@@ -174,23 +175,23 @@
                     android:layout_marginBottom="4dp"
                     android:backgroundTint="#3F51B5"
                     android:text="Contraseña:"
-                    app:layout_constraintBottom_toTopOf="@+id/contraseña"
+                    app:layout_constraintBottom_toTopOf="@+id/contrasena"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.251"
+                    app:layout_constraintHorizontal_bias="0.135"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/email"
-                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_bias="1.0"
                     tools:ignore="MissingConstraints" />
 
                 <EditText
-                    android:id="@+id/contraseña"
-                    android:layout_width="230dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/contrasena"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="Contraseña"
                     android:inputType="textPassword"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toStartOf="parent"
@@ -198,13 +199,13 @@
 
                 <EditText
                     android:id="@+id/fechaN"
-                    android:layout_width="230dp"
-                    android:layout_height="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="Fecha Nacimiento"
                     android:inputType="date"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -219,36 +220,36 @@
                     android:text="Ciudad de Residencia:"
                     app:layout_constraintBottom_toTopOf="@+id/ciudad"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.314"
+                    app:layout_constraintHorizontal_bias="0.17"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fechaN"
-                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_bias="1.0"
                     tools:ignore="MissingConstraints" />
 
                 <EditText
                     android:id="@+id/ciudad"
-                    android:layout_width="230dp"
-                    android:layout_height="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="Ciudad"
                     android:inputType="text"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fechaN" />
 
                 <EditText
                     android:id="@+id/identificacion"
-                    android:layout_width="230dp"
-                    android:layout_height="40dp"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="32dp"
                     android:ems="10"
                     android:hint="Numero de Cedula"
                     android:inputType="number"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +266,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contraseña" />
+                    app:layout_constraintTop_toBottomOf="@+id/contrasena" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
