@@ -34,4 +34,11 @@
         android:name="com.example.educatio_version1.ui.Register.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/fragment_verifyteacher"
+        android:name="com.example.educatio_version1.ui.Verify_teacher.Verify_Teacher"
+        android:label="verifyteacher"
+        tools:layout="@layout/fragment_verifyteacher" />
+
 </navigation>
