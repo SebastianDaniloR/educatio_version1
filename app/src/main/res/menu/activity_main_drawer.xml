@@ -16,5 +16,8 @@
             android:id="@+id/nav_slideshow"
 
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/fragment_verifyteacher"
+            android:title="Ser Docente" />
     </group>
 </menu>

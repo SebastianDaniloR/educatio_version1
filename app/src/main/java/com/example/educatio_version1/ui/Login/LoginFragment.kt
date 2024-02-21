@@ -15,7 +15,6 @@ import com.example.educatio_version1.R
 import com.example.educatio_version1.ui.Register.ManagerBd
 import com.example.educatio_version1.ui.Verify_teacher.Managerbd
 
-
 class LoginFragment : Fragment() {
 
     private lateinit var emailEditText: EditText
