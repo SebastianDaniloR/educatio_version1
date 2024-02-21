@@ -1,26 +1,26 @@
 package com.example.educatio_version1.ui.Login
 
+import android.database.Cursor
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.educatio_version1.R
+import com.example.educatio_version1.ui.Register.ManagerBd
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginFragment : Fragment() {
 
+    private lateinit var emailEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var loginButton: Button
+    private lateinit var enlaceRegistro: TextView
+    private lateinit var managerBd: ManagerBd
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,18 +28,51 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
-        val enlaceRegistro = view.findViewById<TextView>(R.id.enlace_registro)
-        enlaceRegistro.setOnClickListener {
 
-            findNavController().navigate(R.id.fragment_register)
+        // Initialize views and ManagerBd instance
+        emailEditText = view.findViewById(R.id.editTextTextEmailAddress)
+        passwordEditText = view.findViewById(R.id.editTextNumberPassword)
+        loginButton = view.findViewById(R.id.bottonInicioDeSesion)
+        enlaceRegistro = view.findViewById(R.id.enlace_registro)
+        managerBd = ManagerBd(requireContext())
 
+        // Set click listener for login button
+        loginButton.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+
+            // Check if email and password are not empty
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                // Call method to validate credentials
+                val cursor = managerBd.obtenerDatosPorCorreo(email)
+                if (cursor != null && cursor.moveToFirst()) {
+                    val storedPassword = cursor.getString(cursor.getColumnIndex("contrasena"))
+                    if (password == storedPassword) {
+                        // Login successful, navigate to next destination
+                        Toast.makeText(requireContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+                        // Navigate to the next destination after successful login
+                        // For example:
+                        // findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    } else {
+                        // Password incorrect
+                        Toast.makeText(requireContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Email not found
+                    Toast.makeText(requireContext(), "Correo no registrado", Toast.LENGTH_SHORT).show()
+                }
+                cursor?.close() // Close the cursor when no longer needed
+            } else {
+                // Email or password field is empty
+                Toast.makeText(requireContext(), "Por favor, ingrese correo y contraseña", Toast.LENGTH_SHORT).show()
+            }
         }
+
+        // Set click listener for registration link
+        enlaceRegistro.setOnClickListener {
+            findNavController().navigate(R.id.fragment_register)
+        }
+
         return view
     }
-
-
 }
-
-
-
-

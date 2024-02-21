@@ -78,4 +78,11 @@ class ManagerBd(context: Context) {
         cerrarBd()
         return cursor
     }
+
+    fun obtenerDatosPorCorreo(correo: String): Cursor? {
+        abrirBdLectura()
+        val cursor = bd?.query("registro", null, "correo = ?", arrayOf(correo), null, null, null)
+        cursor?.moveToFirst()
+        return cursor
+    }
 }
