@@ -21,10 +21,11 @@
             android:layout_weight="1"
             android:src="@drawable/logopngblanco__2_" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="389dp"
-        android:layout_height="500dp"
+        android:layout_width="371dp"
+        android:layout_height="557dp"
         android:layout_margin="16dp"
         android:layout_marginTop="200dp"
         android:layout_marginBottom="200dp"
@@ -264,7 +265,7 @@
                     android:id="@+id/identificacion"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="Numero de Cedula"
                     android:inputType="number"
@@ -272,7 +273,7 @@
                     android:textColor="#000000"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintHorizontal_bias="0.494"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -297,12 +298,10 @@
             android:id="@+id/textView"
             android:layout_width="182dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/scrollView2"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="94dp"
             android:layout_marginEnd="106dp"
-            android:layout_marginBottom="411dp"
             android:fontFamily="serif"
             android:text="REGISTRO"
             android:textAlignment="center"
