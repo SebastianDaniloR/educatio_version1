@@ -9,6 +9,8 @@ import android.util.Log
 class Managerbd(context: Context) {
     private val bdHelper = bdHelper(context)
     private var bd: SQLiteDatabase? = null
+    private val preferences = context.getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+
 
     fun abrirBdEscritura() {
         bd = bdHelper.writableDatabase
@@ -35,6 +37,14 @@ class Managerbd(context: Context) {
             put("hoja_vida", hojaVida)
         }
         val result = bd?.insert("docente", null, contenedor) // Cambia "docente" por el nombre de tu tabla
+        if (result != null && result != -1L) {
+            // Almacenar el correo y la contraseña en SharedPreferences
+            preferences.edit().apply {
+                putString("correo", correo)
+                putString("contrasena", contrasena)
+                apply()
+            }
+        }
         cerrarBd()
         return result ?: -1
     }
@@ -56,6 +66,7 @@ class Managerbd(context: Context) {
         return result ?: -1
     }
 
+
     fun eliminarDatos(cedula: String): Int {
         abrirBdEscritura()
         val result = bd?.delete(constantes.TABLA2, "cedula = ?", arrayOf(cedula))
@@ -68,6 +79,13 @@ class Managerbd(context: Context) {
         val cursor = bd?.query(constantes.TABLA2, null, "cedula = ?", arrayOf(cedula), null, null, null)
         cursor?.moveToFirst()
         cerrarBd()
+        return cursor
+    }
+
+    fun obtenerDatosPorCorreo(correo: String): Cursor? {
+        abrirBdLectura()
+        val cursor = bd?.query("docente", null, "correo = ?", arrayOf(correo), null, null, null)
+        cursor?.moveToFirst()
         return cursor
     }
 
