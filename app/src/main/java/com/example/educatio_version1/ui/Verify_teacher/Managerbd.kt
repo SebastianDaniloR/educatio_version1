@@ -1,4 +1,4 @@
-package com.example.educatio_version1.ui.Register
+package com.example.educatio_version1.ui.Verify_teacher
 
 import android.content.ContentValues
 import android.content.Context

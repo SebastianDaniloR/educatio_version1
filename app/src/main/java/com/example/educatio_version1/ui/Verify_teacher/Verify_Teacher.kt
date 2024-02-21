@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.educatio_version1.databinding.FragmentVerifyteacherBinding
-import com.example.educatio_version1.ui.Register.Managerbd
+import com.example.educatio_version1.ui.Verify_teacher.Managerbd
 
-class VerifyTeacher : Fragment() {
+class Verify_Teacher : Fragment() {
 
     private var _binding: FragmentVerifyteacherBinding? = null
     private val binding get() = _binding!!
