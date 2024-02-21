@@ -72,34 +72,34 @@ class LoginFragment : Fragment() {
                     if (cursorTeacher != null && cursorTeacher.moveToFirst()) {
                         val storedPassword = cursorTeacher.getString(cursorTeacher.getColumnIndex("contrasena"))
                         if (password == storedPassword) {
-                            // Login successful, navigate to next destination
+                            // inicio de sesion correcto
                             Toast.makeText(requireContext(), "Inicio de sesión exitoso (Docente)", Toast.LENGTH_SHORT).show()
-                            // Navigate to the next destination after successful login
+                            // Hacia donde navega cuango es exitoso el inicio de sesion
                             findNavController().navigate(R.id.nav_home)
                             isLoginSuccessful = true
                         } else {
-                            // Password incorrect
+                            // Contraseña incorrecta
                             Toast.makeText(requireContext(), "Contraseña incorrecta (Docente)", Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        // Email not found
+                        // Correo no registrado
                         Toast.makeText(requireContext(), "Correo no registrado", Toast.LENGTH_SHORT).show()
                     }
-                    cursorTeacher?.close() // Close the cursor when no longer needed
+                    cursorTeacher?.close() // Cerrar el cursor cuando ya no sea necesario
                 }
 
-                // If login was not successful in either database, show a general error message
+                // Cuando el inicio de sesion sea incorrecto
                 if (!isLoginSuccessful) {
                     Toast.makeText(requireContext(), "Inicio de sesión fallido", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                // Email or password field is empty
+                // Cuando el correo o la contraseña este vacio
                 Toast.makeText(requireContext(), "Por favor, ingrese correo y contraseña", Toast.LENGTH_SHORT).show()
             }
         }
 
 
-        // Set click listener for registration link
+        // Set para llevar a fragment register por medio del link
         enlaceRegistro.setOnClickListener {
             findNavController().navigate(R.id.fragment_register)
         }
