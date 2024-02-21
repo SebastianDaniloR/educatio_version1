@@ -33,7 +33,7 @@ class Verify_Teacher : Fragment() {
             val telefono = binding.telefono.text.toString()
             val correo = binding.email.text.toString()
             val contrasena = binding.contrasena.text.toString()
-            val hojaVida = "" // Aquí puedes obtener el valor de la hoja de vida desde algún componente de tu UI si es necesario
+            val hojaVida = "" // No necesitas obtener la hoja de vida aquí, ya que se obtiene al adjuntarla
 
             // Llamar al método insertarDatos() de ManagerBd para insertar el registro en la base de datos
             val managerBd =  Managerbd(requireContext())// Usar requireContext() para obtener el contexto del fragmento
@@ -68,7 +68,10 @@ class Verify_Teacher : Fragment() {
                 // Aquí puedes obtener la URI del archivo seleccionado
                 val rutaArchivo = uri.toString()
                 Toast.makeText(requireContext(), "Archivo seleccionado: $rutaArchivo", Toast.LENGTH_SHORT).show()
-                // Aquí puedes realizar más acciones con la URI, como cargar el archivo a tu base de datos
+
+                // Aquí puedes llamar al método para insertar la hoja de vida en la base de datos
+                val managerBd =  Managerbd(requireContext())
+                managerBd.insertarHojaVida(rutaArchivo)
             }
         }
     }

@@ -68,4 +68,16 @@ class Managerbd(context: Context) {
         cerrarBd()
         return cursor
     }
+
+    fun insertarHojaVida(rutaArchivo: String): Long {
+        abrirBdEscritura()
+        val contenedor = ContentValues().apply {
+            put("hoja_vida", rutaArchivo) // Cambia "hoja_vida" a la columna correspondiente en tu base de datos
+        }
+        val result = bd?.insert(constantes.TABLA2, null, contenedor)
+        cerrarBd()
+        return result ?: -1
+    }
+
+
 }
