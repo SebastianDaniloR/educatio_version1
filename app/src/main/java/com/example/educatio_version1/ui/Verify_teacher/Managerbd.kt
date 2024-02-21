@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 
 class Managerbd(context: Context) {
     private val bdHelper = bdHelper(context)
@@ -33,10 +34,11 @@ class Managerbd(context: Context) {
             put("contrasena", contrasena)
             put("hoja_vida", hojaVida)
         }
-        val result = bd?.insert(constantes.TABLA2, null, contenedor)
+        val result = bd?.insert("docente", null, contenedor) // Cambia "docente" por el nombre de tu tabla
         cerrarBd()
         return result ?: -1
     }
+
 
     fun actualizarDatos(cedula: String, nombre: String, nacimiento: String, ciudad: String, telefono: String, correo: String, contrasena: String, hojaVida: String): Int {
         abrirBdEscritura()
@@ -72,12 +74,13 @@ class Managerbd(context: Context) {
     fun insertarHojaVida(rutaArchivo: String): Long {
         abrirBdEscritura()
         val contenedor = ContentValues().apply {
-            put("hoja_vida", rutaArchivo) // Cambia "hoja_vida" a la columna correspondiente en tu base de datos
+            put("hoja_vida", rutaArchivo)
         }
-        val result = bd?.insert(constantes.TABLA2, null, contenedor)
+        val result = bd?.insert("docente", null, contenedor) // Cambia "docente" por el nombre de tu tabla
         cerrarBd()
         return result ?: -1
     }
+
 
 
 }
