@@ -85,4 +85,5 @@ class ManagerBd(context: Context) {
         cursor?.moveToFirst()
         return cursor
     }
+
 }
