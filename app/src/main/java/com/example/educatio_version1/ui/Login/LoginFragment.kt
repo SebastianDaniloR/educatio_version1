@@ -51,8 +51,7 @@ class LoginFragment : Fragment() {
                         // Login successful, navigate to next destination
                         Toast.makeText(requireContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
                         // Navigate to the next destination after successful login
-                        // For example:
-                        // findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                         findNavController().navigate(R.id.fragment_register)
                     } else {
                         // Password incorrect
                         Toast.makeText(requireContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
