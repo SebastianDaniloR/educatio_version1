@@ -14,11 +14,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.educatio_version1.R
 import com.example.educatio_version1.ui.Register.ManagerBd
 
+
 class LoginFragment : Fragment() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
+    private lateinit var enlaceRegistrod: TextView
     private lateinit var enlaceRegistro: TextView
     private lateinit var managerBd: ManagerBd
 
@@ -33,6 +35,7 @@ class LoginFragment : Fragment() {
         emailEditText = view.findViewById(R.id.editTextTextEmailAddress)
         passwordEditText = view.findViewById(R.id.editTextNumberPassword)
         loginButton = view.findViewById(R.id.bottonInicioDeSesion)
+        enlaceRegistrod = view.findViewById(R.id.enlace_registrod)
         enlaceRegistro = view.findViewById(R.id.enlace_registro)
         managerBd = ManagerBd(requireContext())
 
@@ -51,7 +54,7 @@ class LoginFragment : Fragment() {
                         // Login successful, navigate to next destination
                         Toast.makeText(requireContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
                         // Navigate to the next destination after successful login
-                         findNavController().navigate(R.id.fragment_register)
+                         findNavController().navigate(R.id.mobile_navigation)
                     } else {
                         // Password incorrect
                         Toast.makeText(requireContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
@@ -72,6 +75,13 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.fragment_register)
         }
 
+
+       enlaceRegistrod.setOnClickListener {
+            findNavController().navigate(R.id.fragment_verifyteacher)
+        }
+
+
         return view
     }
+
 }

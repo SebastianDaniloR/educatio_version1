@@ -1,3 +1,5 @@
+package com.example.educatio_version1.ui.Verify_teacher
+
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle

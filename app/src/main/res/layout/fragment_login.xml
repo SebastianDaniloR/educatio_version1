@@ -50,14 +50,14 @@
                     android:autoLink="web"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bottonInicioDeSesion" />
+                    app:layout_constraintTop_toBottomOf="@+id/enlace_registrod" />
 
 
                 <TextView
-                    android:id="@+id/registrodocente"
+                    android:id="@+id/enlace_registrod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="38dp"
                     android:text="Registrar Docente"
                     android:autoLink="web"
                     app:layout_constraintEnd_toEndOf="parent"
